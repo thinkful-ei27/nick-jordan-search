@@ -8,9 +8,7 @@ export default class LiveSearch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            characterCount: 75,
-            characterList: props.characters,
-            characterSearch: ''
+            characters: props.characters
         }
     }
 
@@ -31,9 +29,9 @@ export default class LiveSearch extends React.Component {
     
     render() {
         return <div className="live-search">
-                <SearchForm handleChange={(search) => this.setCharacterSearch(search)} />
-                <CharacterCount  count={this.charactersCount}/>
-                <CharacterList  characters={this.charactersList}/>
+                <SearchForm />
+                <CharacterCount  count={this.state.characters.length}/>
+                <CharacterList  characters={this.state.characters}/>
             </div>
         };
     }
